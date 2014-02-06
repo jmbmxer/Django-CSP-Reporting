@@ -20,11 +20,15 @@ class security_report(models.Model):
 	source_file = models.CharField()
 	script_sample = models.CharField()
 
-	class Meta:
-		app_label = "events"
-
 	def __unicode__(self):
 		return  '%s %s %s %s %s %s %s %s %s %s %s %s %s' % (self.id, self.received, self.csp_report, self.blocked_uri, self.column_number,
 		self.document_uri, self.line_number, self.original_policy, self.referrer, self.status_code, self.violated_directive,
 		self.source_file, self.script_sample)
+
+
+
+	class Meta:
+		ordering = ["id"]
+		db_table = 'security_report'
+
 
