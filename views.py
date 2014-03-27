@@ -1,4 +1,3 @@
-
 from security_report.models import *
 from django.utils import simplejson
 from django.http import HttpResponse, HttpRequest
@@ -10,7 +9,7 @@ import json
 def secreport(request):
 
 	if request.method == "POST":
-		json_data = simplejson.loads(request.raw_post_data)
+		json_data = simplejson.loads(request.body)
 
 		data = json_data['csp-report']
 		document_uri = data['document-uri']
